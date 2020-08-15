@@ -38,3 +38,33 @@
 * 了解html,css,js,vue
 * 熟悉使用idea开发项目
 
+## 分布式基础概念
+### 微服务
+简而言之:微服务就是拒绝单体应用，基于业务边界进行服务微化拆分，各个服务独立部署运行  
+### 集群&分布式&节点
+* 集群是个物理形态，分布式是个工作方式。  
+* 集群指的是将几台服务器集中在一起，实现同一业务。  
+* 分布式是指将不同的业务分布在不同的地方。  
+* 节点指的是集群中的每一个服务器
+
+例如:京东是一个分布式系统，众多的业务运行在不同的机器，所有业务构成一个大型的业务集群。每一个小的业务，比如用户系统，访问压力大的时候一个服务器是不够的
+。我们就将用户系统部署到多台服务器上，也就是每一个业务系统可以做集群化。  
+分布式系统的每一个节点，都可以做集群。而集群并不一定就是分布式的。
+
+### 远程调用
+在分布式系统中，各个服务可能处于不同主机，但是服务之间不可避免的相互调用，我们称为远程调用  
+springcloud中使用HTTP+JSON的方式完成远程调用  
+![Image text](https://raw.githubusercontent.com/lzhharvey/picture/master/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8.bmp)
+## 负载均衡
+![Image text](https://raw.githubusercontent.com/lzhharvey/picture/master/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.bmp)
+## 服务注册/发现&注册中心
+![Image text](https://raw.githubusercontent.com/lzhharvey/picture/master/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83.bmp)
+## 配置中心
+![Image text](https://raw.githubusercontent.com/lzhharvey/picture/master/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83.bmp)
+## 服务熔断&降级
+在微服务架构中，微服务之间通过网络进行通，存在相互依赖，当其中一个服务不可用时，有可能造成雪崩效应，要防止这样的情况，必须有容错机制来保护服务。
+* 服务熔断：设置服务的超时，当被调用的服务经常失败到达某个阈值，我们可以开启断路保护机制，后来的请求不再去调用这个服务。本地直接返回默认的数据。
+* 服务降级：在运维期间，当系统处于高峰期，系统资源紧张，我们可以让非核心业务降级运行。降级：某些服务不处理，或者处理简单【抛异常、返回NULL、调用Mock数据、调用Fallback处理逻辑】
+## API网关
+![Image text](https://raw.githubusercontent.com/lzhharvey/picture/master/%E7%BD%91%E5%85%B3.bmp)
+
